@@ -1,0 +1,72 @@
+<div class="container">
+
+    <div>
+        <button class="sendbutton" mat-raised-button color="primary" (click)="onNavigateTo('pf')" disabled >Pessoa fisíca</button>
+        <button class="sendbutton" mat-raised-button color="primary" (click)="onNavigateTo('pj')">Pessoa juridica</button>
+    </div>
+
+    <mat-card class="card" style="min-height: 800px;">
+        <mat-card-header>
+            <mat-card-title>Cadastro de cliente</mat-card-title>
+            <mat-card-subtitle>Formulário de cadastro Pessoa Fisíca</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content style='padding-left: 20px;'>
+            <form [formGroup]="clienteForm">
+
+                <mat-form-field class='Name'>
+                    <input matInput placeholder="Nome Completo" formControlName="name" required>
+                </mat-form-field>
+
+                <mat-form-field  class='Phone'>
+                    <input matInput placeholder="Numero de Telefone" type="number" formControlName="phone">
+                </mat-form-field>
+                <!--
+                    <button mat-raised-button>Add Número</button>
+
+                <div *ngFor="let phones of phone"> 
+                 <mat-form-field  class='Phone'>
+                    <input matInput placeholder="Numero de Telefone" type="number" formControlName="phones">
+                 </mat-form-field>
+                 <button mat-raised-button (click)="addPhone()">Add Número</button>
+                 <button mat-raised-button>Remover Número</button>
+                </div>-->
+
+                <mat-form-field class='Address'>
+                    <input matInput placeholder="Endereço" typi="string" formControlName="adress">
+                </mat-form-field>
+
+                <mat-form-field class='CEP'>
+                    <input matInput placeholder="CEP" type="number" formControlName="cep">
+                </mat-form-field>
+ 
+                <mat-form-field class='UF'>
+                    <input matInput placeholder="UF" formControlName="uf">
+                </mat-form-field>
+
+                <mat-form-field class='Rg'>
+                    <input matInput placeholder="Rg" type="number" formControlName="rg" required>
+                </mat-form-field>
+
+                <mat-form-field class='Cpf'>
+                    <input matInput placeholder="Cpf" type="number" formControlName="cpf" required>
+                </mat-form-field>
+
+
+
+                <!--Botão para enviar formulario-->
+                <div class="send">
+                    <button class="sendButton" mat-raised-button color="primary" (click)="onSubmit()"
+                   >Cadastrar</button>
+                   <button class="sendButton" mat-raised-button color="primary" (click)="onCancel()"
+                   >Cancelar</button>
+                </div>
+                
+
+            </form>
+        </mat-card-content>
+
+
+    </mat-card>
+
+</div>
