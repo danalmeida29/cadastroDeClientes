@@ -26,9 +26,34 @@ mat-form-field-flex {
     max-height: fit-content;
 }
 
+.filter{
+    height: 100%;
+    width: 700px;
+    max-width: 100%;
+}
+
 .sendButton {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.mat-atu-icon{
+    color: #e6b517;
+}
+.mat-delet-icon{
+    color: #FF6347 !important;
+}
+
+.atualizarButton{
     margin-left: 5px;
     margin-top: 5px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
 }
 
 form {

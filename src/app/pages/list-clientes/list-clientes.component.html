@@ -1,23 +1,31 @@
 <div class="container">
     <mat-card class="card" style="height: 100px;">
         <mat-card-header>
-            <mat-card-title>Cadastro / <b>Clientes Cadastrados</b></mat-card-title>
+            <mat-card-title>Cadastro /<b>Clientes Cadastrados</b></mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <div class="send">
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('')">
-                    <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
-                        person_pin_circle</mat-icon>
-                    Novo Cliente
-                </button>
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('listaDecliente')"
+
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('')"
                     disabled>
                     <mat-icon _ngcontent-rex-c82="" role="img"
                         class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">apps</mat-icon>
                     Todos os Clientes
                 </button>
-
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('pf')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                    <span class="material-icons-outlined">
+                        perm_identity
+                        </span></mat-icon> Pessoa fisíca
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('pj')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                    <span class="material-icons-outlined">
+                        perm_identity
+                        </span></mat-icon>Pessoa juridica
+                </button>
             </div>
 
         </mat-card-content>
@@ -25,19 +33,20 @@
 <!----------------------------------------------------------- PESSOA FISICA --------------------------------------------------------->
     <mat-card class="card" style="min-height: 800px;cursor:pointer;">
 
-        <mat-card-header>
-            <mat-card-title>Clientes Cadastrados</mat-card-title>
-            <mat-card-subtitle>Lista de Clientes cadastrados:</mat-card-subtitle>
-        </mat-card-header>
+        <mat-card-header class="header">
+            <mat-card-title>Todos os Clientes Cadastrados</mat-card-title>
+        </mat-card-header><mat-icon><span class="material-icons-outlined">
+            search
+            </span></mat-icon> <mat-form-field  class="filter" appearance="standard">
+            <mat-label>Pesquisa de Pessoa Fisíca ou Jurídica</mat-label>
+            <input matInput (input)="filterClienteList()" placeholder="Pesquisar..." #filterInput>
+        </mat-form-field>
 
         <mat-list>
-            <h3 mat-subheader>Registro de Pessoas Fisícas </h3>
-
-            <mat-form-field  class="filter" appearance="standard">
-                <mat-label>Pesquisa Pessoa Fisíca</mat-label>
-                <input matInput (input)="filterClienteList()" placeholder="filtraPf" #filterInput>
-            </mat-form-field>
-
+            <mat-card-header class="header">
+                <mat-card-title>Pessoas Fisícas</mat-card-title>
+                <mat-card-subtitle>Registro de Pessoas Fisícas </mat-card-subtitle>
+            </mat-card-header>
             <mat-list-item *ngFor="let clientes of filteredList">
                 <mat-icon mat-list-icon>person</mat-icon>
                 <p mat-line class="demo-1">Nome do Cliente: <b>{{clientes.name}}</b></p>
@@ -45,23 +54,24 @@
                 <p mat-line class="demo-2">Endereço: <b>{{clientes.adress}}</b></p>
                 <p mat-line class="demo-2">CPF:<b>{{clientes.cpf}}</b></p>
                 
-                <button class="sendButton" mat-raised-button color="primary">Atualizar</button>
+                <mat-icon class="mat-atu-icon" ><span class="atualizarButton" (click)="onEdit('/editarPf',clientes.id)">
+                    mode_edit
+                </span></mat-icon>
                 <hr/>
-                <button class="sendButton" mat-flat-button color="warn" (click)="deletar()">Deletar</button>
+                <mat-icon _ngcontent-rex-c82="" role="img" class="mat-delet-icon" aria-hidden="true" (click)="onDeletar(clientes.id)"><span class="sendButton">
+                    delete_forever
+                </span></mat-icon>
             </mat-list-item>
         </mat-list>
 
         <hr/> <!------------------------------------------ PESSOA JURÌDICA ----------------------------------------------------->
 
         <mat-list>
-            <h3 mat-subheader>Registro de Pessoas Jurídicas</h3>
-
-            
-            <mat-form-field  class="filter" appearance="standard">
-                <mat-label>Pesquisa de Pessoa Jurídica</mat-label>
-                <input matInput (input)="filterClientesPjList()" placeholder="filtraPj" #filterInput>
-            </mat-form-field>
-
+            <mat-card-header class="header">
+                <mat-card-title>Pessoas Jurídicas</mat-card-title>
+                <mat-card-subtitle>Registro de Pessoas Jurídicas </mat-card-subtitle>
+            </mat-card-header>
+        
             <mat-list-item *ngFor="let clientesPj of filteredListPj">
                 <mat-icon mat-list-icon>person</mat-icon>
                 <p mat-line class="demo-1">Nome do Cliente: <b>{{clientesPj.name}}</b></p>
@@ -69,9 +79,13 @@
                 <p mat-line class="demo-2">Endereço: <b>{{clientesPj.adress}}</b></p>
                 <p mat-line class="demo-2">CNPJ:<b>{{clientesPj.cnpj}}</b></p>
 
-                <button class="sendButton" mat-raised-button color="primary">Atualizar</button>
+                <mat-icon class="mat-atu-icon" ><span class="material-icons-outlined" (click)="onEdit('/editarPj',clientesPj.id)">
+                    mode_edit
+                    </span></mat-icon>
                 <hr/>
-                <button class="sendButton" mat-flat-button color="warn">Deletar</button>
+                <mat-icon _ngcontent-rex-c82="" role="img" class="mat-delet-icon" aria-hidden="true" (click)="onDelete(clientesPj.id)"><span class="sendButton">
+                    delete_forever
+                </span></mat-icon>
             </mat-list-item>
         </mat-list>
 

@@ -1,26 +1,52 @@
 <div class="container">
+    <mat-card class="card" style="height: 100px;">
+        <mat-card-header>
+            <mat-card-title>Cadastro /<b>Cadastro De Pessoa Jurídica</b></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="send">
 
-    <div>
-        <button class="sendbutton" mat-raised-button color="primary" (click)="onNavigateTo('pf')"  >Pessoa fisíca</button>
-        <button class="sendbutton" mat-raised-button color="primary" (click)="onNavigateTo('pj')" disabled >Pessoa juridica</button>
-    </div>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">apps</mat-icon>
+                    Todos os Clientes
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('pf')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                    <span class="material-icons-outlined">
+                        perm_identity
+                        </span></mat-icon>Pessoa fisíca
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('pj')" disabled >
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                    <span class="material-icons-outlined">
+                        perm_identity
+                        </span></mat-icon>Pessoa juridica
+                </button>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
 
     <mat-card class="card" style="min-height: 800px;">
         <mat-card-header>
             <mat-card-title>Cadastro de cliente</mat-card-title>
-            <mat-card-subtitle>Formulário de cadastro Pessoa Jurídica</mat-card-subtitle>
+            <mat-card-subtitle>Formulário de cadastro Pessoa jurídica </mat-card-subtitle>
         </mat-card-header>
 
         <mat-card-content style='padding-left: 20px;'>
-            <form [formGroup]="clienteForm">
+            <form [formGroup]="clienteFormPj">
 
                 <mat-form-field class='Name'>
-                    <input matInput placeholder="Nome Da Empresa" formControlName="name" required>
+                    <input matInput placeholder="Nome Completo" formControlName="name" required>
                 </mat-form-field>
 
-                <mat-form-field class='Phone'>
-                    <input matInput placeholder="Numero de Telefone" type="number" formControlName="phone">
+                <mat-form-field  class='Phone'>
+                    <input matInput placeholder="Número de Telefone" type="number" formControlName="phone">
                 </mat-form-field>
+
                 <mat-form-field class='Address'>
                     <input matInput placeholder="Endereço" typi="string" formControlName="adress">
                 </mat-form-field>
@@ -33,14 +59,13 @@
                     <input matInput placeholder="UF" formControlName="uf">
                 </mat-form-field>
 
-                <mat-form-field class='Cnpj'>
-                    <input matInput placeholder="Cnpj" type="number" formControlName="cnpj" required>
-                </mat-form-field>
-
                 <mat-form-field class='IE'>
                     <input matInput placeholder="IE" type="number" formControlName="ie" required>
                 </mat-form-field>
 
+                <mat-form-field class='CNPJ'>
+                    <input matInput placeholder="CNPJ" type="number" formControlName="cnpj" required>
+                </mat-form-field>
 
 
                 <!--Botão para enviar formulario-->
@@ -50,11 +75,10 @@
                    <button class="sendButton" mat-raised-button color="primary" (click)="onCancel()"
                    >Cancelar</button>
                 </div>
+                
 
             </form>
         </mat-card-content>
-
-
     </mat-card>
 
 </div>

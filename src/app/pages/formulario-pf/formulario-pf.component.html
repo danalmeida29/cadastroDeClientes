@@ -1,9 +1,36 @@
 <div class="container">
 
-    <div>
-        <button class="sendbutton" mat-raised-button color="primary" (click)="onNavigateTo('pf')" disabled >Pessoa fisíca</button>
-        <button class="sendbutton" mat-raised-button color="primary" (click)="onNavigateTo('pj')">Pessoa juridica</button>
-    </div>
+    <mat-card class="card" style="height: 100px;">
+        <mat-card-header>
+            <mat-card-title>Cadastro /<b>Cadastro De Pessoa Fisíca</b></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="send">
+
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">apps</mat-icon>
+                    Todos os Clientes
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('pf')" disabled >
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                    <span class="material-icons-outlined">
+                    perm_identity
+                    </span></mat-icon>Pessoa fisíca
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('pj')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                    <span class="material-icons-outlined">
+                        perm_identity
+                    </span></mat-icon>Pessoa juridica
+                </button>
+                
+            </div>
+
+        </mat-card-content>
+    </mat-card>
 
     <mat-card class="card" style="min-height: 800px;">
         <mat-card-header>
@@ -19,7 +46,7 @@
                 </mat-form-field>
 
                 <mat-form-field  class='Phone'>
-                    <input matInput placeholder="Numero de Telefone" type="number" formControlName="phone">
+                    <input matInput placeholder="Número de Telefone" type="number" formControlName="phone">
                 </mat-form-field>
                 <!--
                     <button mat-raised-button>Add Número</button>
@@ -45,11 +72,11 @@
                 </mat-form-field>
 
                 <mat-form-field class='Rg'>
-                    <input matInput placeholder="Rg" type="number" formControlName="rg" required>
+                    <input matInput placeholder="RG" type="number" formControlName="rg" required>
                 </mat-form-field>
 
                 <mat-form-field class='Cpf'>
-                    <input matInput placeholder="Cpf" type="number" formControlName="cpf" required>
+                    <input matInput placeholder="CPF" type="number" formControlName="cpf" required>
                 </mat-form-field>
 
 
@@ -65,8 +92,5 @@
 
             </form>
         </mat-card-content>
-
-
     </mat-card>
-
 </div>

@@ -1,4 +1,5 @@
 export class Cliente {
+    id!: number;
     name: string ='';
     tipo: number = 1;
     cpf: number= 1;

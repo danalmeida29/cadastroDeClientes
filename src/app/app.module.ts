@@ -10,8 +10,10 @@ import { DemoMaterialModule } from './material-module';
 
 import { FormularioPJComponent } from './pages/formulario-pj/formulario-pj.component';
 import { FormularioPFComponent } from './pages/formulario-pf/formulario-pf.component';
-import { FormulariosComponent } from './pages/formularios/formularios.component';
+
 import {  HttpClientModule } from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { DailogComponent } from './pages/list-clientes/dailog/dailog.component'
 
 
 @NgModule({
@@ -20,14 +22,15 @@ import {  HttpClientModule } from '@angular/common/http';
     ListClientesComponent,
     FormularioPJComponent,
     FormularioPFComponent,
-    FormulariosComponent,
+    DailogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
