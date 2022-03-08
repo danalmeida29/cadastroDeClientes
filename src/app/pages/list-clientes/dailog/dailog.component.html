@@ -1,4 +1,18 @@
-<h1 mat-dialog-title>OLÁ</h1>
+<h1 mat-dialog-title>Adicionar novo cliente</h1>
+<h2>Escolha o tipo de cadastro que deseja realizar</h2>
 <div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancelar</button>
+
+  <button mat-raised-button color="primary" class="sendButton" (click)="onNavigateTo('pf')"><mat-icon _ngcontent-rex-c82="" role="img"
+    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+    <span class="material-icons-outlined">
+    perm_identity
+    </span></mat-icon>Pessoa Fisíca</button>
+
+   <button mat-raised-button color="primary" class="send" (click)="onNavigateTo('pj')"><mat-icon _ngcontent-rex-c82="" role="img"
+    class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+    <span class="material-icons-outlined">
+      perm_identity
+    </span></mat-icon>Pessoa Jurídica</button>
+
+  <button mat-raised-button color="primary" (click)="onCancel()">Fechar</button>
 </div>

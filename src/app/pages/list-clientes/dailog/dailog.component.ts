@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ClienteService } from '../../Core/cliente.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dailog',
@@ -9,7 +10,12 @@ import { ClienteService } from '../../Core/cliente.service';
 })
 export class DailogComponent implements OnInit {
   
-  constructor(public dialogRef: MatDialogRef<DailogComponent>, private clienteService: ClienteService) { }
+  constructor(
+    public dialogRef: MatDialogRef<DailogComponent>, 
+    private clienteService: ClienteService, 
+    private router: Router, 
+    private route: ActivatedRoute
+    ) { }
 
   clientesModel:any;
   clientesPjModel:any;
@@ -20,28 +26,10 @@ export class DailogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-  getListClientePJ(){
-    this.clienteService.getListClientePJ().subscribe(
-      (res:any) =>{ this.clientesPjModel = res;
-        this.filteredListPj = this.clientesPjModel;
-        console.log(res);
-      },
-
-      (error:any) => {
-        this.Error= error;
-      }
-    )
+  onNavigateTo(pageName: any){
+    this.router.navigate([`/${pageName}`]);
   }
 
-  onDelete(id:any){
-    this.clienteService.deletarClientePj(id).subscribe(
-      (res:any)=>{
-        this.getListClientePJ();
-        console.log(this.clientesModel);
-      }
-    );
-  }
 
   onCancel(): void {
     this.dialogRef.close();

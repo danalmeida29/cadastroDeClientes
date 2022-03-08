@@ -44,6 +44,16 @@ export class ListClientesComponent implements OnInit, AfterViewInit {
     this.getListClientePJ();
   }
 
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(DailogComponent, {
+  //     width: '250px',
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
+
   ngAfterViewInit(): void {
     this.filterClienteList()
   }
@@ -109,7 +119,7 @@ export class ListClientesComponent implements OnInit, AfterViewInit {
         }
       );
     }
-
+ //---------------------------------------------------deletePj-----------------------------------------------------------
     onDelete(id: any){
       this.clienteService.deletarClientePj(id).subscribe(
         (res:any)=>{
